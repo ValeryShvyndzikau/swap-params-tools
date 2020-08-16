@@ -44,7 +44,7 @@ function replaceToken(path, request): string {
 //console.log(replaceToken(value1, {}))
 
 function customLogger(options) {
-  if (!options.path.includes(['properties', 'another_extra_requests'])) {
+  if (!options.path.includes(['properties', 'another_wtf_requests'])) {
     console.log(options)
   }
 }
