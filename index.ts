@@ -1,7 +1,7 @@
 // https://stackoverflow.com/questions/3512471/what-is-a-non-capturing-group-in-regular-expressions
 // https://usefulangle.com/post/78/javascript-get-url-parameters
 
-const value1 = "https://usefulangle.com/post/78/javascript-get-url-parameters?test=123&foo=ABC&token=token_value&more=123"
+const value1 = "https://usefulangle.com/post/78/javascript-get-url-parameters?test=123&foo=ABC&dataToken=token_value&more=123"
 
 function replaceUrlParam(url, paramName, paramValue) {
     if (paramValue == null) {
@@ -34,11 +34,11 @@ function replaceToken(path, request): string {
   }
   
   if (url.searchParams.has('dataToken')) {
-    url.searchParams.set('tokrn', 'DataTokenReplacement')
+    url.searchParams.set('dataToken', 'DataTokenReplacement')
   }
 
   return url.href;
 }
 
 
-console.log(replaceToken(value1, "token", '123'))
+console.log(replaceToken(value1, {}))
