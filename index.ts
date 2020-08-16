@@ -30,11 +30,11 @@ function replaceToken(path, request): string {
   const url = new URL(path);
 
   if (url.searchParams.has('token')) {
-    url.searchParams.set('token', 'TokenReplacement')
+    url.searchParams.set('token', 'request.uiTabToken')
   }
   
   if (url.searchParams.has('dataToken')) {
-    url.searchParams.set('dataToken', 'DataTokenReplacement')
+    url.searchParams.set('dataToken', 'request.uiTabToken')
   }
 
   return url.href;
@@ -42,3 +42,9 @@ function replaceToken(path, request): string {
 
 
 console.log(replaceToken(value1, {}))
+
+function customLogger(options) {
+  if (!options.path.includes(['properties', 'another_extra_requests'])) {
+    console.log(options)
+  }
+}
