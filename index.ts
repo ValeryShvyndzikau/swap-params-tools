@@ -16,16 +16,29 @@ function replaceUrlParam(url, paramName, paramValue) {
 }
 
 
-function replaceParam(url: string, paramName: string, newValue: string): string {
-  const urlObject = new URL(url);
+// function replaceParam(url: string, paramName: string, newValue: string): string {
+//   const urlObject = new URL(url);
 
-  if (urlObject.searchParams.has(paramName)) {
-    urlObject.searchParams.set(paramName, newValue)
+//   if (urlObject.searchParams.has(paramName)) {
+//     urlObject.searchParams.set(paramName, newValue)
+//   }
+
+//   return urlObject.href;
+// }
+
+function replaceToken(path, request): string {
+  const url = new URL(path);
+
+  if (url.searchParams.has('token')) {
+    url.searchParams.set('token', 'TokenReplacement')
+  }
+  
+  if (url.searchParams.has('dataToken')) {
+    url.searchParams.set('tokrn', 'DataTokenReplacement')
   }
 
-  return urlObject.href;
+  return url.href;
 }
 
 
-
-console.log(replaceParam(value1, "token", '123'))
+console.log(replaceToken(value1, "token", '123'))
